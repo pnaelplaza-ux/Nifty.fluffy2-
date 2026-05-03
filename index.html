@@ -9,21 +9,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Conteneur de fond optimisé -->
+  <!-- Fond d'écran avec distorsion -->
   <div class="bg-container"></div>
-  <div class="bg-overlay"></div>
+  <div class="bg-vignette"></div>
 
   <main class="card" id="card">
-    <!-- Grain de verre pour la texture -->
+    <!-- Texture de verre physique -->
     <div class="glass-grain"></div>
+    <div class="glass-reflection"></div>
     
     <div class="content">
       <header class="header">
-        <div class="avatar-container">
-          <div class="avatar-status"></div>
-          <div class="avatar-ring"></div>
-          <div class="name-display">nifty.fluffy2</div>
+        <div class="avatar-wrapper">
+          <!-- Si tu as une photo de profil, remplace l'icône ci-dessous -->
+          <div class="avatar-placeholder">
+            <span>N</span>
+          </div>
+          <div class="online-indicator"></div>
         </div>
+        <h1 class="name-display">nifty.fluffy2</h1>
       </header>
 
       <nav class="links-container">
@@ -36,12 +40,12 @@
             <span class="link-title">TikTok</span>
             <span class="link-sub">@nifty.fluffy2</span>
           </div>
-          <div class="link-chevron">
+          <div class="link-action">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 18l6-6-6-6"/></svg>
           </div>
         </a>
 
-        <!-- YouTube -->
+        <!-- YouTube (FIXED) -->
         <a class="link-card" href="https://www.youtube.com/@ミcYnEsSaMiLl彡" target="_blank" rel="noopener">
           <div class="link-icon">
             <img src="png-logo-youtube (1).png" alt="YouTube">
@@ -50,7 +54,7 @@
             <span class="link-title">YouTube</span>
             <span class="link-sub">ミcYnEsSaMiLl彡</span>
           </div>
-          <div class="link-chevron">
+          <div class="link-action">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 18l6-6-6-6"/></svg>
           </div>
         </a>
@@ -64,14 +68,18 @@
             <span class="link-title">Instagram</span>
             <span class="link-sub">nifty.fluffy2</span>
           </div>
-          <div class="link-chevron">
+          <div class="link-action">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 18l6-6-6-6"/></svg>
           </div>
         </a>
       </nav>
+      
+      <footer class="footer">
+        <p>© 2026 nifty.fluffy2</p>
+      </footer>
     </div>
 
-    <!-- Effet de reflet interactif -->
+    <!-- Curseur de lumière interactif -->
     <div class="shine" id="shine"></div>
   </main>
 
