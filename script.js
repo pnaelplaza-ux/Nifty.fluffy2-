@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const shine = document.getElementById('shine');
   const bg = document.querySelector('.bg-container');
   
-  // Animation d'entrée fluide
   card.style.opacity = '0';
   card.style.transform = 'scale(0.9) translateY(40px)';
   
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.transform = 'scale(1) translateY(0)';
   }, 300);
 
-  // Gestion du mouvement et parallaxe
   const handleInteraction = (e) => {
     const x = e.clientX || (e.touches && e.touches[0].clientX);
     const y = e.clientY || (e.touches && e.touches[0].clientY);
@@ -22,18 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const { innerWidth, innerHeight } = window;
     
-    // Inclinaison de la carte (Tilt)
     const tiltX = (y - innerHeight / 2) / 35;
     const tiltY = (x - innerWidth / 2) / 35;
     
     card.style.transform = `rotateX(${-tiltX}deg) rotateY(${tiltY}deg)`;
 
-    // Distorsion parallaxe du fond
     const bgMoveX = (x - innerWidth / 2) / 70;
     const bgMoveY = (y - innerHeight / 2) / 70;
     bg.style.transform = `scale(1.15) translate(${bgMoveX}px, ${bgMoveY}px)`;
 
-    // Reflet lumineux
     shine.style.opacity = '1';
     const rect = card.getBoundingClientRect();
     const shineX = ((x - rect.left) / rect.width) * 100;
