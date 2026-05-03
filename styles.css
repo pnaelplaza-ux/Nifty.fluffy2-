@@ -26,7 +26,7 @@ body {
 /* Fond d'écran fixe haute qualité */
 .bg-container {
   position: fixed;
-  inset: -5%; /* Un peu plus grand pour le mouvement */
+  inset: -5%; 
   z-index: -2;
   background-image: url('IMG-20260502-WA0013.jpg');
   background-size: cover;
@@ -51,7 +51,7 @@ body {
   border-radius: 42px;
   border: 1px solid var(--glass-border);
   box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.2);
-  padding: 40px 24px;
+  padding: 45px 24px;
   overflow: hidden;
   z-index: 10;
   transition: transform 0.1s ease-out;
@@ -70,25 +70,13 @@ body {
 .header { text-align: center; margin-bottom: 35px; }
 
 .name-display {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 900;
   letter-spacing: -1px;
-  margin-top: 15px;
+  margin-top: 10px;
   background: linear-gradient(to bottom, #fff, #aaa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.status-badge {
-  background: rgba(0, 245, 160, 0.1);
-  color: var(--accent);
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 1px solid rgba(0, 245, 160, 0.2);
 }
 
 .links-container { display: flex; flex-direction: column; gap: 14px; }
