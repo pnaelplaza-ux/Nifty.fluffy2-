@@ -3,52 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>nifty.fluffy2 | Liens</title>
+  <title>nifty.fluffy2 | Premium Links</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main class="card" id="card" role="main">
+  <!-- Conteneur pour le fond d'écran fixe afin d'éviter les saccades -->
+  <div class="bg-container"></div>
+
+  <main class="card" id="card">
+    <!-- Texture de grain pour le réalisme du verre -->
+    <div class="glass-grain"></div>
+    
     <div class="content">
-      <div class="header-section">
+      <div class="header">
         <h1 class="name">nifty.fluffy2</h1>
+        <div class="status-badge">En ligne</div>
       </div>
 
-      <div class="profiles">
+      <div class="profiles-grid">
         <!-- TikTok -->
-        <a class="profile profile--tiktok" href="https://www.tiktok.com/@nifty.fluffy2?_r=1&_t=ZN-962AunZfWic" target="_blank" rel="noopener noreferrer">
-          <img class="profile-pfp" src="canva-tik-tok-icon-MAGzNubTHuw.png" alt="TikTok">
-          <div class="profile-info">
+        <a class="profile-item" href="https://www.tiktok.com/@nifty.fluffy2" target="_blank">
+          <div class="pfp-container">
+            <img class="pfp" src="canva-tik-tok-icon-MAGzNubTHuw.png" alt="TikTok">
+          </div>
+          <div class="info">
+            <span class="platform">TikTok</span>
             <span class="handle">@nifty.fluffy2</span>
           </div>
+          <div class="arrow">→</div>
         </a>
 
         <!-- YouTube -->
-        <a class="profile profile--yt" href="https://www.youtube.com/@ミcYnEsSaMiLl彡" target="_blank" rel="noopener noreferrer">
-          <img class="profile-pfp" src="png-logo-youtube (1).png" alt="YouTube">
-          <div class="profile-info">
-            <span class="handle">@ミcYnEsSaMiLl彡</span>
+        <a class="profile-item" href="https://www.youtube.com/@ミcYnEsSaMiLl彡" target="_blank">
+          <div class="pfp-container">
+            <img class="pfp" src="png-logo-youtube (1).png" alt="YouTube">
           </div>
+          <div class="info">
+            <span class="platform">YouTube</span>
+            <span class="handle">ミcYnEsSaMiLl彡</span>
+          </div>
+          <div class="arrow">→</div>
         </a>
 
         <!-- Instagram -->
-        <a class="profile profile--ig" href="https://www.instagram.com/nifty.fluffy2?igsh=MXVqaHRoMWEyaGg1ag==" target="_blank" rel="noopener noreferrer">
-          <img class="profile-pfp" src="instagrame-logo.png" alt="Instagram">
-          <div class="profile-info">
+        <a class="profile-item" href="https://www.instagram.com/nifty.fluffy2" target="_blank">
+          <div class="pfp-container">
+            <img class="pfp" src="instagrame-logo.png" alt="Instagram">
+          </div>
+          <div class="info">
+            <span class="platform">Instagram</span>
             <span class="handle">nifty.fluffy2</span>
           </div>
+          <div class="arrow">→</div>
         </a>
       </div>
     </div>
-    
-    <!-- Effet de lueur derrière la carte -->
-    <div class="avatar-glow" aria-hidden="true"></div>
+
+    <!-- Reflet brillant qui suit le mouvement (via JS) -->
+    <div class="shine-effect" id="shine"></div>
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-```
