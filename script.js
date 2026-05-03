@@ -2,43 +2,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const card = document.getElementById('card');
   const shine = document.getElementById('shine');
   
-  // Effet d'entrée
+  // Animation d'entrée
   card.style.opacity = '0';
-  card.style.transform = 'scale(1.1) translateY(20px)';
+  card.style.transform = 'scale(0.9) translateY(40px)';
   
   setTimeout(() => {
-    card.style.transition = 'all 1s cubic-bezier(0.2, 1, 0.3, 1)';
+    card.style.transition = 'all 1.2s cubic-bezier(0.15, 1, 0.3, 1)';
     card.style.opacity = '1';
     card.style.transform = 'scale(1) translateY(0)';
-  }, 100);
+  }, 200);
 
-  // Mouvement du verre et des reflets
-  document.addEventListener('mousemove', (e) => {
-    const { clientX, clientY } = e;
+  // Gestion du mouvement (PC + Mobile)
+  const handleMove = (e) => {
+    const x = e.clientX || (e.touches && e.touches[0].clientX);
+    const y = e.clientY || (e.touches && e.touches[0].clientY);
+    
+    if(!x || !y) return;
+
     const { innerWidth, innerHeight } = window;
     
-    // Calcul de l'inclinaison
-    const moveX = (clientX - innerWidth / 2) / 35;
-    const moveY = (clientY - innerHeight / 2) / 35;
+    // Inclinaison de la carte
+    const tiltX = (y - innerHeight / 2) / 30;
+    const tiltY = (x - innerWidth / 2) / 30;
     
-    // Application de la transformation 3D
-    card.style.transform = `rotateY(${moveX}deg) rotateX(${-moveY}deg)`;
-    
-    // Déplacement du reflet brillant
-    const shineX = (clientX / innerWidth) * 100;
-    const shineY = (clientY / innerHeight) * 100;
-    shine.style.background = `radial-gradient(circle at ${shineX}% ${shineY}%, rgba(255,255,255,0.15) 0%, transparent 60%)`;
+    card.style.transform = `rotateX(${-tiltX}deg) rotateY(${tiltY}deg)`;
+
+    // Reflet brillant
+    shine.style.opacity = '1';
+    const rect = card.getBoundingClientRect();
+    const shineX = ((x - rect.left) / rect.width) * 100;
+    const shineY = ((y - rect.top) / rect.height) * 100;
+    shine.style.background = `radial-gradient(circle at ${shineX}% ${shineY}%, rgba(255,255,255,0.15), transparent 60%)`;
+  };
+
+  document.addEventListener('mousemove', handleMove);
+  document.addEventListener('touchmove', handleMove, { passive: true });
+
+  document.addEventListener('mouseleave', () => {
+    card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    shine.style.opacity = '0';
   });
-
-  // Support Mobile : accéléromètre ou simple toucher
-  card.addEventListener('touchmove', (e) => {
-    const touch = e.touches[0];
-    const { clientX, clientY } = touch;
-    const { innerWidth, innerHeight } = window;
-    
-    const moveX = (clientX - innerWidth / 2) / 45;
-    const moveY = (clientY - innerHeight / 2) / 45;
-    
-    card.style.transform = `rotateY(${moveX}deg) rotateX(${-moveY}deg)`;
-  }, { passive: true });
 });
