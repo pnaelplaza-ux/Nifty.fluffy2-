@@ -1,17 +1,10 @@
 :root{
-  --glass-bg: rgba(6,6,8,0.5);
-  --accent: #FF3B88;
-  --accent-2: #00F5A0;
   --white: #ffffff;
-  --muted: rgba(255,255,255,0.85);
   --glass-border: rgba(255,255,255,0.04);
-  --btn-shadow: 0 8px 30px rgba(0,0,0,0.55);
-
-  /* iOS-like motion tokens */
   --spring-duration: 500ms;
   --spring-easing: cubic-bezier(.2,1.1,.3,1);
-  --press-scale: 0.96;
   --hover-scale: 1.02;
+  --press-scale: 0.96;
   --shadow-strong: 0 22px 48px rgba(0,0,0,0.6);
 }
 
@@ -20,9 +13,7 @@ html,body{height:100%}
 
 body{
   margin:0;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  font-family:Inter,system-ui,sans-serif;
   background-color: #000;
   color:var(--white);
   min-height:100vh;
@@ -30,40 +21,32 @@ body{
   align-items:center;
   justify-content:center;
   padding:18px;
-  
-  /* FIXED FILENAME HERE */
-  background-image: url('21496.jpg'); 
+  /* FIXED: Exact filename and no leading slash */
+  background-image: url('IMG-20260502-WA0013.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Keeps background still while scrolling */
+  background-attachment: fixed;
 }
 
-/* translucent card centered for mobile one-screen layout */
 .card{
   width:100%;
   max-width:520px;
-  border-radius:24px; /* Added rounded corners back for a cleaner look */
+  border-radius:24px;
   display:flex;
-  gap:14px;
   align-items:center;
   justify-content:center;
   padding:24px;
   backdrop-filter: blur(14px) saturate(1.12);
   background: linear-gradient(180deg, rgba(2,2,4,0.48), rgba(0,0,0,0.52));
   border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-  overflow:hidden;
   position:relative;
+  overflow:hidden;
 }
 
-/* simplified profiles row (pfp + handle only) */
 .profiles{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin:12px 0;
-  overflow:visible;
-  align-items:center;
   justify-content:center;
 }
 
@@ -71,81 +54,32 @@ body{
   display:flex;
   gap:12px;
   align-items:center;
-  min-width:140px;
   padding:10px;
   border-radius:14px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  background: rgba(255,255,255,0.03);
   border:1px solid var(--glass-border);
   text-decoration:none;
   color:var(--white);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-  transition: transform var(--spring-duration) var(--spring-easing), box-shadow 220ms ease, filter 220ms ease;
-  will-change: transform;
+  transition: transform var(--spring-duration) var(--spring-easing), box-shadow 220ms ease;
 }
 
 .profile:hover{
   transform: translateY(-6px) scale(var(--hover-scale));
   box-shadow: var(--shadow-strong);
-  filter: saturate(1.06) contrast(1.02);
 }
-
-.profile:active{ transform: translateY(-2px) scale(var(--press-scale)); }
 
 .profile-pfp{
   width:56px;
   height:56px;
   border-radius:12px;
   object-fit:cover;
-  border:1px solid rgba(255,255,255,0.06);
-}
-
-.profile--tiktok{
-  background: linear-gradient(180deg, rgba(255,59,136,0.08), rgba(255,59,136,0.02));
-  border: 1px solid rgba(255,59,136,0.12);
-}
-
-.profile--yt{
-  background: linear-gradient(180deg, rgba(255,80,60,0.08), rgba(255,80,60,0.02));
-  border: 1px solid rgba(255,80,60,0.12);
-}
-
-.profile--ig{
-  background: linear-gradient(180deg, rgba(255,200,80,0.06), rgba(140,58,255,0.02));
-  border: 1px solid rgba(255,200,80,0.08);
-}
-
-.profile-info{display:flex;flex-direction:column;overflow:hidden}
-.handle{font-weight:800;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-.avatar-glow{
-  position:absolute;
-  inset:6px;
-  border-radius:12px;
-  pointer-events:none;
-  background: radial-gradient(closest-side, rgba(255,59,136,0.12), transparent 40%),
-              radial-gradient(closest-side, rgba(0,245,160,0.08) 10%, transparent 45%);
-  mix-blend-mode: screen;
-  filter: blur(18px);
-}
-
-.content{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:12px;
 }
 
 .name{
-  font-size:clamp(18px,5.6vw,28px);
-  margin:0;
-  letter-spacing:0.6px;
-  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
-  color:var(--white);
+  font-size: 28px;
+  font-weight: 900;
 }
 
-/* responsive tweaks */
 @media (max-width:520px){
-  .card{ border-radius:0; height:100vh; max-width:100%; padding:12px; }
-  .name{font-size:22px}
+  .card{ border-radius:0; height:100vh; }
 }
